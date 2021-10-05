@@ -12,10 +12,6 @@ Created on Tue Oct  5 16:12:32 2021
 给iris数据集构造一棵分类决策树。
 
 '''
-import numpy as np
-import pandas as pd
-
-import  matplotlib.pyplot as plt
 
 #import seaborn as sns
 #iris = sns.load_dataset('iris', cache=True)
