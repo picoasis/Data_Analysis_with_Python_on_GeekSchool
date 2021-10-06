@@ -46,7 +46,7 @@ sklearn自带的波士顿房价数据集。
 
 根据这些指标，我们使用CART回归树对波士顿房价进行预测。
 '''
-
+'''
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_boston
 from sklearn.metrics import r2_score,mean_absolute_error,mean_squared_error
@@ -70,4 +70,30 @@ predict_price = dtr.predict(test_features)
 #测试集的结果评价
 print( '回归树二乘偏差均值', mean_squared_error(test_price,predict_price))
 print( '回归树绝对值偏差均值', mean_absolute_error(test_price,predict_price))
+#为什么取0.33的测试数据
+'''
+
+
+'''
+CART，
+数据集：手写数字
+目标：对数据集分类，病选取部分测试集，统计分类树的准确率
+'''
+
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+digits = load_digits()
+features = digits.data
+labels = digits.target
+
+train_features,test_features,train_target,test_target = train_test_split(features,labels,test_size = 0.33)
+dtc = DecisionTreeClassifier(criterion='gini')
+
+dtc.fit(train_features,train_target)
+test_predict = dtc.predict(test_features)
+score = accuracy_score(test_target, test_predict)
+print('预测准确率：',score)
                                                                          
